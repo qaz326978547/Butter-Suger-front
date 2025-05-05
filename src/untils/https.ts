@@ -3,8 +3,8 @@ import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios' // 使用 type 匯入
 
 type Method = 'get' | 'post' | 'put' | 'delete' | 'patch' | 'options' | 'head' // 定義 HTTP 方法類型
-const apiUrl = 'http://localhost:8080'
-export const apiBaseUrl = `${apiUrl}/api`
+const apiUrl = import.meta.env.VITE_API_BACKEND_URL // 從環境變數獲取 API 基礎 URL
+export const apiBaseUrl = `${apiUrl}/api/v1`
 const apiTimeoutSec = 10 // 設定 API 超時時間（秒）
 
 const ajax = axios.create({

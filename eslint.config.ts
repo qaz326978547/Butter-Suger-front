@@ -18,6 +18,12 @@ export default defineConfigWithVueTs(
 
   // 🔹 跳過與 Prettier 衝突的規則
   skipFormatting,
+  {
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // 允許使用 any 類型
+      '@typescript-eslint/no-namespace': 'off', // 允許使用 namespace
+    },
+  },
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
