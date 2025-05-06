@@ -7,6 +7,6 @@
 
 <script setup lang="ts">
   const redirectToGoogle = () => {
-    window.location.href = 'http://localhost:8080/api/v1/users/auth/google'
+    window.location.href = `${import.meta.env.VITE_API_BACKEND_URL}/api/v1/users/auth/google`
   }
 </script>

@@ -3,12 +3,6 @@
 </script>
 
 <template>
-  <header>
-    <div class="rounded bg-red-500 p-4 text-center shadow">
-      Hello UnoCSS + Prettier Tailwind Sorting!
-    </div>
-  </header>
-
   <RouterView />
 </template>
 
