@@ -36,6 +36,16 @@ const router = createRouter({
       name: 'login-success',
       component: () => import('../views/LoginSuccessView.vue'),
     },
+    {
+      path: '/upload/image',
+      name: 'UploadImage',
+      component: () => import('../views/UploadImageView.vue'),
+    },
+    {
+      path: '/upload/image/onlyJs',
+      name: 'UploadImageOnlyJs',
+      component: () => import('../views/UploadImageOnlyJSView.vue'),
+    }
   ],
 })
 

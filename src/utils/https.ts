@@ -30,12 +30,21 @@ ajax.interceptors.request.use(config => {
 
 export async function $http<T = any>(method: Method, url: string, ...payload: any[]): Promise<T> {
   const requestData: AxiosRequestConfig = { url, method }
+  const isForm = payload[0] instanceof FormData
 
   if (method.toLowerCase() === 'get') {
     requestData.params = payload[0]
   } else {
     requestData.data = payload[0]
     requestData.params = payload[1]
+  }
+
+  //自動處理 FormData Content-Type（axios 會自動補上 boundary）
+  if (isForm) {
+    requestData.headers = {
+      ...requestData.headers,
+      'Content-Type': 'multipart/form-data',
+    }
   }
 
   try {
