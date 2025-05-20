@@ -2,17 +2,17 @@
   <div class="text-white">
     <h2>上傳課程封面</h2>
     <form @submit.prevent="handleBannerUpload">
-      <input type="file" @change="e => bannerFile = e.target.files[0]" />
+      <input type="file" @change="handleBannerChange" />
       <button type="submit">上傳封面</button>
     </form>
     <p v-if="bannerUrl">封面圖片連結：</p>
-    <img v-if="bannerUrl" :src=" bannerUrl" alt="">
+    <img v-if="bannerUrl" :src="bannerUrl" alt="banner" />
 
     <hr class="my-4" />
 
     <h2>上傳課程教材</h2>
     <form @submit.prevent="handleMaterialsUpload">
-      <input type="file" multiple @change="e => materialFiles = Array.from(e.target.files)" />
+      <input type="file" multiple @change="handleMaterialsChange" />
       <button type="submit">上傳教材</button>
     </form>
     <ul>
@@ -32,6 +32,16 @@ const materialFiles = ref<File[]>([])
 
 const bannerUrl = ref('')
 const materialsUrls = ref<string[]>([])
+
+const handleBannerChange = (e: Event) => {
+  const target = e.target as HTMLInputElement
+  if (target?.files?.[0]) bannerFile.value = target.files[0]
+}
+
+const handleMaterialsChange = (e: Event) => {
+  const target = e.target as HTMLInputElement
+  if (target?.files) materialFiles.value = Array.from(target.files)
+}
 
 const handleBannerUpload = async () => {
   if (!bannerFile.value) return alert('請選擇圖片')
