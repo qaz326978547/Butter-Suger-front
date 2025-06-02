@@ -7,6 +7,9 @@
       </div>
 
       <button @click="redirectToGoogle" class="btn-google">使用 Google 登入</button>
+      <button v-if="userStore.isLogin" class="btn-custom bg-emerald text-white" @click="logout">
+        登出
+      </button>
       <button class="btn-custom bg-emerald text-white" @click="getUserInfo">取得使用者資料</button>
       <button class="btn-custom bg-yellow text-white" @click="checkUser">檢查使用者登入狀態</button>
     </div>
@@ -41,6 +44,24 @@
     } else {
       console.log('error')
     }
+  }
+
+  const logout = async () => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('userId')
+    alert('登出成功')
+    response.value = null
+    responseTitle.value = '登出成功'
+    userStore.setUser({
+      id: '',
+      name: '',
+      nickname: '',
+      email: '',
+      phone: '',
+      address: '',
+      birthday: '',
+      profile_image_url: '',
+    })
   }
 
   const checkUser = async () => {
