@@ -1,12 +1,19 @@
 <script setup lang="ts">
   import { RouterView } from 'vue-router'
+  import headerComponent from '@/components/headerComponent.vue';
+
 </script>
 
 <template>
-  <RouterView />
+  <headerComponent/>
+  <div>
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
+
+
   header {
     line-height: 1.5;
     max-height: 100vh;

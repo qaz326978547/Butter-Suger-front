@@ -1,11 +1,6 @@
 <template>
   <main>
     <div>
-      <div class="flex w-1/2">
-        <router-link to="/">首頁</router-link>
-        <router-link to="/user" class="border-red border-2">更新使用者資料</router-link>
-      </div>
-
       <button @click="redirectToGoogle" class="btn-google">使用 Google 登入</button>
       <button v-if="userStore.isLogin" class="btn-custom bg-emerald text-white" @click="logout">
         登出
@@ -25,7 +20,6 @@
   import { onMounted, ref } from 'vue'
   import { ApiAuth } from '@/apis/auth'
   import { useUserStore } from '@/stores/userStore'
-
   const response = ref()
   const responseTitle = ref('回傳資料')
   const userStore = useUserStore()

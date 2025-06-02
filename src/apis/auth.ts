@@ -1,4 +1,4 @@
-import { $http, isResponseOK, asyncDo } from '@/untils/https'
+import { $http, isResponseOK, asyncDo } from '@/utils/https'
 import type { UserProfile, UpdateUser } from './interfaces/auth'
 import type { ApiResponese } from './interfaces/common'
 /* eslint-disable @typescript-eslint/no-namespace */
