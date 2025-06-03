@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [vue(), vueDevTools(), Unocss()],
-    base: './', // 設定基礎路徑為相對路徑
+    base: '/', // 設定基礎路徑為相對路徑
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
